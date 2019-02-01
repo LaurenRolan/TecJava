@@ -3,6 +3,7 @@ package Socket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.Files;
 
 public class Server implements Runnable{
 
@@ -45,9 +46,16 @@ public class Server implements Runnable{
             flux = new PrintStream(clientSocket.getOutputStream(), true);
 
             File folder = new File(path);
-            File[] listOfFiles = folder.listFiles();
-            for(File f : listOfFiles) {
-                flux.println(f.getName());
+
+            if(folder.exists()) {
+
+                File[] listOfFiles = folder.listFiles();
+                flux.println(listOfFiles.length);
+                for (File f : listOfFiles) {
+                    flux.println(f.getName());
+                }
+            } else {
+                flux.println(-1);
             }
 
         } catch (IOException e) {
