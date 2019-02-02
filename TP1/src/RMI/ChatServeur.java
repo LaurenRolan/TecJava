@@ -1,15 +1,14 @@
 package RMI;
 
-
-import Socket.Client;
-
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
 
 public class ChatServeur extends UnicastRemoteObject implements InterfaceChatServeur {
-    private List clients = new ArrayList<ChatClient>();
+    private Map<String, InterfaceChatClient> clients = new HashMap<>();
 
     public ChatServeur() throws RemoteException {
         super();
@@ -29,15 +28,18 @@ public class ChatServeur extends UnicastRemoteObject implements InterfaceChatSer
 
     @Override
     public void connect(String pseudo, String url) throws RemoteException {
-        clients.add(new ChatClient(pseudo, url));
-        System.out.println(pseudo + "  got connected....");
+        try {
+            clients.put(pseudo, (InterfaceChatClient) Naming.lookup(url));
+        } catch (NotBoundException | MalformedURLException e) {
+            e.printStackTrace();
+        }
         broadcastMessage(new Message(pseudo, " has just connected."));
     }
 
     @Override
     public void disconnect(String pseudo) throws RemoteException {
-        System.out.println("Removing " + pseudo);
-        clients.remove(new ChatClient(pseudo, "rmi://localhost:2001/" + pseudo));
+        clients.remove(pseudo);
+        System.out.println(pseudo + " disconnected");
         broadcastMessage(new Message(pseudo, " has just disconnected."));
     }
 
@@ -45,13 +47,13 @@ public class ChatServeur extends UnicastRemoteObject implements InterfaceChatSer
     public void broadcastMessage(Message msg) throws RemoteException {
         System.out.println(msg);
 
-        for(Object client : clients) {
+
+        for(Map.Entry<String, InterfaceChatClient> entry : clients.entrySet()) {
             try{
-                InterfaceChatClient tmp = (InterfaceChatClient) client;
-                System.out.println(msg.getMessage());
-                tmp.diffuseMessage(msg);
+                System.out.println("Sending " + msg.getMessage());
+                entry.getValue().diffuseMessage(msg);
             } catch(Exception e){
-                System.err.println("Error : " + e.getMessage());
+                disconnect(entry.getKey()); //TODO : treat on GUI
             }
         }
     }

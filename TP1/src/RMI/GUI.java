@@ -2,8 +2,6 @@ package RMI;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,14 +44,10 @@ public class GUI  extends Application implements Initializable {
     @Override
     public void stop() throws Exception {
         super.stop();
-        server.disconnect(client.getName());
-        isConnected = false;
     }
 
     @Override
-    public void start(Stage stage) throws IOException, NotBoundException {
-        isConnected = false;
-        java.rmi.registry.LocateRegistry.createRegistry(2001);
+    public void start(Stage stage) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         String fxmlDocPath = "src/RMI/GUI.fxml";
@@ -105,21 +99,18 @@ public class GUI  extends Application implements Initializable {
 
     @FXML
     void newMessage(Message msg) {
-        System.out.println(msg.getMessage());
-        chat_bar.appendText(msg.getPseudo() + " : " + msg.getMessage());
+        chat_bar.appendText("\n" + msg.getPseudo() + " : " + msg.getMessage());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        isConnected = false;
         try {
             hserver = (InterfaceHeureServeur) Naming.lookup("rmi://localhost:1999/hourserver");
-        } catch (NotBoundException | MalformedURLException | RemoteException e) {
-            e.printStackTrace();
-        }
-        System.out.println(time_server.getText());
-        try {
             time_server.setText(hserver.getHeure());
-        } catch (RemoteException e) {
+            time_client.setText(getHour());
+        } catch (RemoteException | NotBoundException | MalformedURLException e) {
             e.printStackTrace();
         }
         Timeline timeUpdate = new Timeline(new KeyFrame(Duration.seconds(10), actionEvent -> {

@@ -3,14 +3,13 @@ package RMI;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class ChatClient extends UnicastRemoteObject implements InterfaceChatClient {
 
-    GUI gui;
-    String name;
-    String url;
+    private GUI gui;
+    private String name;
+    private String url;
+    private static int port = 2001;
 
     public String getName() {
         return name;
@@ -24,11 +23,18 @@ public class ChatClient extends UnicastRemoteObject implements InterfaceChatClie
         super();
         this.name = name;
         this.url = url;
+        try {
+            //System.setSecurityManager(new RMISecurityManager());
+            java.rmi.registry.LocateRegistry.createRegistry(port);
+            port++;
+            Naming.rebind("rmi://localhost:2001/" + name, this);
+        }catch (Exception e) {
+            System.out.println("Chat client failed: " + e);
+        }
     }
 
     @Override
     public void diffuseMessage(Message m) throws RemoteException {
-        System.out.println(m.getMessage());
         gui.newMessage(m);
     }
 
