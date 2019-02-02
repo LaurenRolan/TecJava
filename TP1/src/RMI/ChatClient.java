@@ -32,11 +32,6 @@ public class ChatClient extends UnicastRemoteObject implements InterfaceChatClie
         gui.newMessage(m);
     }
 
-    public String getHeure() {
-        Calendar calendar = new GregorianCalendar();
-        return String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + " : " + String.valueOf(calendar.get(Calendar.MINUTE));
-    }
-
     public void setGUI(GUI newGUI){
         gui = newGUI;
     }

@@ -15,7 +15,7 @@
       <Label layoutX="14.0" layoutY="27.0" text="Pseudo" />
       <Label layoutX="195.0" layoutY="27.0" text="Heure (client) :" />
       <Label layoutX="405.0" layoutY="27.0" text="Heure (serveur) : " />
-      <Label fx:id="time_client" layoutX="300.0" layoutY="27.0" text="00 : 00" textAlignment="CENTER" />
-      <Label fx:id="time_server" layoutX="527.0" layoutY="27.0" text="00 : 00" />
+      <Label id="time_client" fx:id="time_client" layoutX="300.0" layoutY="27.0" text="00 : 00" textAlignment="CENTER" />
+      <Label id="time_server" fx:id="time_server" layoutX="527.0" layoutY="27.0" text="00 : 00" textAlignment="CENTER" />
    </children>
 </AnchorPane>

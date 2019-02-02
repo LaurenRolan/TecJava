@@ -1,21 +1,33 @@
 package RMI;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.ResourceBundle;
 
-public class GUI  extends Application {
+public class GUI  extends Application implements Initializable {
     private boolean isConnected;
     private ChatClient client;
     private InterfaceChatServeur server;
@@ -39,7 +51,7 @@ public class GUI  extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, NotBoundException {
         isConnected = false;
         java.rmi.registry.LocateRegistry.createRegistry(2001);
 
@@ -54,6 +66,11 @@ public class GUI  extends Application {
 
         stage.setTitle("Le chat qui chat");
         stage.show();
+    }
+
+    public String getHour() {
+        Calendar calendar = new GregorianCalendar();
+        return String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + " : " + String.valueOf(calendar.get(Calendar.MINUTE));
     }
 
     public void connect(){
@@ -90,5 +107,30 @@ public class GUI  extends Application {
     void newMessage(Message msg) {
         System.out.println(msg.getMessage());
         chat_bar.appendText(msg.getPseudo() + " : " + msg.getMessage());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            hserver = (InterfaceHeureServeur) Naming.lookup("rmi://localhost:1999/hourserver");
+        } catch (NotBoundException | MalformedURLException | RemoteException e) {
+            e.printStackTrace();
+        }
+        System.out.println(time_server.getText());
+        try {
+            time_server.setText(hserver.getHeure());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        Timeline timeUpdate = new Timeline(new KeyFrame(Duration.seconds(10), actionEvent -> {
+            time_client.setText(getHour());
+            try {
+                time_server.setText(hserver.getHeure());
+            } catch (RemoteException e) {
+                System.out.println("Error : " + e.getMessage());
+            }
+        }));
+        timeUpdate.setCycleCount(Timeline.INDEFINITE);
+        timeUpdate.play();
     }
 }
