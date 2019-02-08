@@ -30,6 +30,7 @@ public class GUI  extends Application implements Initializable {
     private ChatClient client;
     private InterfaceChatServeur server;
     private InterfaceHeureServeur hserver;
+    private static int port = 2001;
 
     @FXML private TextField message_bar;
     @FXML private TextField pseudo;
@@ -77,7 +78,7 @@ public class GUI  extends Application implements Initializable {
             return;
         }
         try{
-            client = new ChatClient(pseudo.getText());
+            client = new ChatClient(pseudo.getText(), port);
             client.setGUI(this);
             System.out.println(client.getUrl());
             server = (InterfaceChatServeur) Naming.lookup("rmi://localhost:2000/chatserver");
@@ -100,11 +101,11 @@ public class GUI  extends Application implements Initializable {
             connect();
         }
         if(!client.getName().equals(pseudo.getText())) {
+            client.disconnect();;
             server.disconnect(client.getName());
             connect();
         }
         if(!message_bar.getText().equals("")) {
-            System.out.println("Message is not empty");
             server.broadcastMessage(new Message(pseudo.getText(), message_bar.getText()));
             message_bar.clear();
         }
