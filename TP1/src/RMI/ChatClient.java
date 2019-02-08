@@ -9,6 +9,7 @@ public class ChatClient extends UnicastRemoteObject implements InterfaceChatClie
     private GUI gui;
     private String name;
     private String url;
+
     private static int port = 2001;
 
     public String getName() {
@@ -19,15 +20,16 @@ public class ChatClient extends UnicastRemoteObject implements InterfaceChatClie
         return url;
     }
 
-    public ChatClient(String name, String url) throws RemoteException {
+    public ChatClient(String name) throws RemoteException {
         super();
         this.name = name;
-        this.url = url;
         try {
             //System.setSecurityManager(new RMISecurityManager());
             java.rmi.registry.LocateRegistry.createRegistry(port);
+            Naming.rebind("rmi://localhost:" + String.valueOf(port) + "/" + name, this);
+            this.url = "rmi://localhost:" + String.valueOf(port) + "/" + name;
             port++;
-            Naming.rebind("rmi://localhost:2001/" + name, this);
+            System.out.println(port);
         }catch (Exception e) {
             System.out.println("Chat client failed: " + e);
         }

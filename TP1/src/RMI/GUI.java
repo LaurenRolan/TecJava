@@ -37,12 +37,16 @@ public class GUI  extends Application implements Initializable {
     @FXML private Label time_client;
     @FXML private Label time_server;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 
     @Override
     public void stop() throws Exception {
+        if(client == null) {
+            System.out.println("Client is null");
+        } if(server == null) {
+            System.out.println("Server is null");
+        }
+        server.disconnect(client.getName());
         super.stop();
     }
 
@@ -53,7 +57,7 @@ public class GUI  extends Application implements Initializable {
         String fxmlDocPath = "src/RMI/GUI.fxml";
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
 
-        AnchorPane root = (AnchorPane) loader.load(fxmlStream);
+        AnchorPane root = loader.load(fxmlStream);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -73,28 +77,37 @@ public class GUI  extends Application implements Initializable {
             return;
         }
         try{
-            client = new ChatClient(pseudo.getText(), "rmi://localhost:2001/" + pseudo.getText());
+            client = new ChatClient(pseudo.getText());
             client.setGUI(this);
+            System.out.println(client.getUrl());
             server = (InterfaceChatServeur) Naming.lookup("rmi://localhost:2000/chatserver");
             server.connect(client.getName(), client.getUrl());
             isConnected = true;
-        }catch(Exception e){
+        } catch(Exception e){
             System.out.println("Error: " + e.getMessage());
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "Connection problems. Please, try again.");
+            System.out.println(e.getMessage());
         }
     }
 
     @FXML
     public void submitMessage() throws RemoteException {
-        if (pseudo.getText().equals("")){
+        if (pseudo.getText().equals("")) {
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "Choose a pseudo!");
             return;
         }
         if(!isConnected) {
             connect();
         }
-        server.broadcastMessage(new Message(pseudo.getText(), message_bar.getText()));
-        message_bar.clear();
+        if(!client.getName().equals(pseudo.getText())) {
+            server.disconnect(client.getName());
+            connect();
+        }
+        if(!message_bar.getText().equals("")) {
+            System.out.println("Message is not empty");
+            server.broadcastMessage(new Message(pseudo.getText(), message_bar.getText()));
+            message_bar.clear();
+        }
     }
 
     @FXML

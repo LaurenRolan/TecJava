@@ -33,6 +33,7 @@ public class ChatServeur extends UnicastRemoteObject implements InterfaceChatSer
         } catch (NotBoundException | MalformedURLException e) {
             e.printStackTrace();
         }
+        System.out.println(pseudo + " connected");
         broadcastMessage(new Message(pseudo, " has just connected."));
     }
 
