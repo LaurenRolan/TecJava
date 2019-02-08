@@ -1,5 +1,6 @@
 package RMI;
 
+import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.NoSuchObjectException;
 import java.rmi.RemoteException;
@@ -27,8 +28,9 @@ public class ChatClient extends UnicastRemoteObject implements InterfaceChatClie
         try {
             //System.setSecurityManager(new RMISecurityManager());
             registry = java.rmi.registry.LocateRegistry.createRegistry(port);
-            Naming.rebind("rmi://localhost:" + String.valueOf(port) + "/" + name, this);
-            this.url = "rmi://localhost:" + String.valueOf(port) + "/" + name;
+            String inetAddress = InetAddress.getLocalHost().getHostAddress();
+            this.url = "rmi://" + inetAddress +  ":" + String.valueOf(port) + "/" + name;
+            Naming.rebind(this.url, this);
             System.out.println(port);
         }catch (Exception e) {
             System.out.println("Chat client failed: " + e);

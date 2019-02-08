@@ -2,6 +2,7 @@ package RMI;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,18 +38,14 @@ public class GUI  extends Application implements Initializable {
     @FXML private TextArea chat_bar;
     @FXML private Label time_client;
     @FXML private Label time_server;
+    @FXML private AnchorPane root;
 
     public static void main(String[] args) { launch(args); }
 
-    @Override
-    public void stop() throws Exception {
-        if(client == null) {
-            System.out.println("Client is null");
-        } if(server == null) {
-            System.out.println("Server is null");
-        }
+    @FXML
+    public void exitApplication(ActionEvent event) throws RemoteException {
         server.disconnect(client.getName());
-        super.stop();
+        ((Stage)root.getScene().getWindow()).close();
     }
 
     @Override
@@ -58,7 +55,7 @@ public class GUI  extends Application implements Initializable {
         String fxmlDocPath = "src/RMI/GUI.fxml";
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
 
-        AnchorPane root = loader.load(fxmlStream);
+        root = loader.load(fxmlStream);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
