@@ -1,3 +1,6 @@
+/*  Author: Lauren Rolan
+    Discipline: Technologies Java
+ */
 package RMI;
 
 import java.rmi.*;

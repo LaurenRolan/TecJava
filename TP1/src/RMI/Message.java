@@ -1,7 +1,15 @@
+/*  Author: Lauren Rolan
+    Discipline: Technologies Java
+ */
 
 package RMI;
 
 import java.io.Serializable;
+
+/*Question: pourquoi la classe Message doit-elle implémenter l'interface java.io.Serializable ?
+*  Parce que tout objet transmis entre deux programmes RMI doit être serializable, une fois
+*  que la transmission est faite par recopie dans le cas des objets de classe.
+* */
 
 public class Message implements Serializable
 {

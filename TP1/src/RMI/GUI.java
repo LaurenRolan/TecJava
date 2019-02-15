@@ -1,3 +1,7 @@
+/*  Author: Lauren Rolan
+    Discipline: Technologies Java
+ */
+
 package RMI;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
