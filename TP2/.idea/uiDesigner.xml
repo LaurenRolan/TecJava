@@ -121,7 +121,7 @@
       </item>
     </group>
     <group name="TP2">
-      <item class="TPJavaBean.ImageVisualizer" icon="" removable="true" auto-create-binding="true" can-attach-label="true" is-container="true">
+      <item class="TPJavaBean.ImageVisualizer" icon="" removable="true" auto-create-binding="true" can-attach-label="true">
         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="0" />
       </item>
     </group>
