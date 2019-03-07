@@ -23,6 +23,8 @@ public class View {
 
     private View() {
         imageVisualizer.setTime(timer.getValue());
+        beanInformations1.setSource(imageVisualizer);
+        beanTotalImages1.setSource(imageVisualizer);
 
         premierButton.addActionListener(new ActionListener() {
             @Override

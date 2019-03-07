@@ -20,9 +20,6 @@ public class ImageVisualizer extends JPanel implements Serializable {
     private int _quantity;
     private String _name;
     private String _size;
-    private BeanTotalImages _totalImages;
-    private BeanInformations _infos;
-
     private final PropertyChangeSupport _infoBean = new PropertyChangeSupport(this);
     private final PropertyChangeSupport _numberBean = new PropertyChangeSupport(this);
 
@@ -45,9 +42,6 @@ public class ImageVisualizer extends JPanel implements Serializable {
        Dimension dim = getPreferredSize();
        g.drawImage(_img, 0, 0, dim.width, dim.height, this);
     }
-
-    void setTotalImages(BeanTotalImages bean) { _totalImages = bean; }
-    void setInfos(BeanInformations bean) { _infos = bean; }
 
     void setTime(int time) { _time = time; }
 
