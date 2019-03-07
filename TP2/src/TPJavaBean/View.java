@@ -1,6 +1,8 @@
 package TPJavaBean;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,8 +16,14 @@ public class View {
     private JCheckBox modeDiaporamaCheckBox;
     private JCheckBox affichageEnBoucleCheckBox;
     private JSlider timer;
+    private JTextField filePath;
+    private JButton fileChooser;
+    private BeanTotalImages beanTotalImages1;
+    private BeanInformations beanInformations1;
 
-    public View() {
+    private View() {
+        imageVisualizer.setTime(timer.getValue());
+
         premierButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,6 +62,33 @@ public class View {
                 imageVisualizer.setDiaporama(modeDiaporamaCheckBox.isSelected());
             }
         });
+
+        timer.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                imageVisualizer.setTime(timer.getValue());
+            }
+        });
+        filePath.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                imageVisualizer.getImages(filePath.getText());
+            }
+        });
+
+        fileChooser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser choice = new JFileChooser();
+                choice.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int result = choice.showOpenDialog(MainPanel);
+                if(result == JFileChooser.APPROVE_OPTION){
+                    String path = choice.getSelectedFile().getAbsolutePath();
+                    imageVisualizer.getImages(path);
+                    filePath.setText(path);
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -63,4 +98,5 @@ public class View {
         frame.pack();
         frame.setVisible(true);
     }
+
 }
