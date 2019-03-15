@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/BeanInformations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/BeanInformations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/BeanTotalImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/BeanTotalImages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer$Diaporama.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer$Diaporama.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/ImageVisualizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2/TPJavaBean/View.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TPJavaBean/BeanInformations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TPJavaBean/BeanInformations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TPJavaBean/BeanTotalImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TPJavaBean/BeanTotalImages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TPJavaBean/ImageVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TPJavaBean/ImageVisualizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TPJavaBean/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TPJavaBean/View.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,12 +59,13 @@
     <session id="512561086">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.9" value="4" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -141,15 +121,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TPJavaBean/ImageVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="30">
               <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding>
-                <element signature="e#2551#2805#0" expanded="true" />
-                <element signature="e#2804#2805#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -157,22 +133,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanInformations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="450">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanTotalImages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
+            <state relative-caret-position="390">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,8 +166,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TPJavaBean/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+            <state relative-caret-position="285">
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -268,6 +242,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,8 +266,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,11 +410,13 @@
       <workItem from="1551438650316" duration="532000" />
       <workItem from="1551439201067" duration="537000" />
       <workItem from="1551950619489" duration="7431000" />
+      <workItem from="1552642238042" duration="103000" />
+      <workItem from="1552642489113" duration="519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21347000" />
+    <option name="totallyTimeSpent" value="21969000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,21 +428,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <layout>
-      <window_info id="DB Browser" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19313647" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1973466" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="DB Execution Console" />
+      <window_info id="DB Browser" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32789558" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32789558" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39958158" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -477,9 +451,10 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.3294979" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32789558" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32740587" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.3294979" />
+      <window_info anchor="bottom" id="DB Execution Console" order="16" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -516,20 +491,30 @@
     <entry file="file://$PROJECT_DIR$/src/TPJavaBean/Appli.java" />
     <entry file="file://$PROJECT_DIR$/src/TPJavaBean/Appli.form" />
     <entry file="file://$PROJECT_DIR$/src/TPJavaBean/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/ImageVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="30">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/ImageVisualizer.java">
+    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanInformations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="450">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
-            <element signature="e#2551#2805#0" expanded="true" />
-            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanTotalImages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -543,35 +528,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TPJavaBean/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanInformations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TPJavaBean/View.form">
       <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TPJavaBean/BeanTotalImages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
   </component>
 </project>
