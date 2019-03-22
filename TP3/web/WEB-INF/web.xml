@@ -6,4 +6,40 @@
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name> LoginServlet </servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/service/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name> ActionServlet </servlet-name>
+        <servlet-class>ActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActionServlet</servlet-name>
+        <url-pattern>/action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name> AdherentServlet </servlet-name>
+        <servlet-class>AdherentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdherentServlet</servlet-name>
+        <url-pattern>/service/adherent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name> InscriptionServlet </servlet-name>
+        <servlet-class>InscriptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InscriptionServlet</servlet-name>
+        <url-pattern>/service/inscription</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,5 +1,3 @@
-package beans;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -7,7 +5,7 @@ import java.util.Scanner;
 // http://www.postgresqltutorial.com/postgresql-jdbc/insert/
 
 public class FillUpTables {
-    private final String url = "jdbc:postgresql://localhost/livres";
+    private final String url = "jdbc:postgresql://postgres.ecole.ensicaen.fr/livres";
     private final String user = "lrolan";
     private final String password = "l4ur3n";
 
@@ -39,13 +37,13 @@ public class FillUpTables {
             System.out.println("Tapez le password : ");
             String password = input.next();
 
-            Adherent ad = new Adherent(nom, prenom, adresse, telephone, mail, password);
+            beans.Adherent ad = new beans.Adherent(nom, prenom, adresse, telephone, mail, password);
             if(insertAdherent(ad) == 0)
                 System.out.println("Error while inserting");
         }
     }
 
-    public long insertAdherent(Adherent adherent) {
+    public long insertAdherent(beans.Adherent adherent) {
         String SQL = "INSERT INTO adherent(nom,prenom, adresse, telephone, email, password) "
                 + "VALUES(?,?,?,?,?,?)";
 
@@ -79,6 +77,4 @@ public class FillUpTables {
         }
         return id;
     }
-
-
 }
