@@ -3,11 +3,16 @@ import bean.Adherent;
 import java.sql.*;
 import java.util.Scanner;
 
+// https://www.jetbrains.com/help/idea/working-with-the-hibernate-console.html
 // https://www.geeksforgeeks.org/sha-224-hash-in-java/
 // http://www.postgresqltutorial.com/postgresql-jdbc/insert/
 // https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-ee-application.html
 // http://www.ntu.edu.sg/home/ehchua/programming/java/javaserverpages.html
 // https://tecadmin.net/install-tomcat-9-on-ubuntu/
+// https://examples.javacodegeeks.com/enterprise-java/servlet/java-servlet-sendredirect-example/
+// https://blog.2ndquadrant.com/using-hibernate-query-language-hql-with-postgresql/
+
+
 public class FillUpTables {
     private final String url = "jdbc:postgresql://postgres.ecole.ensicaen.fr/livres";
     private final String user = "lrolan";
@@ -41,7 +46,7 @@ public class FillUpTables {
             System.out.println("Tapez le password : ");
             String password = input.next();
 
-            Adherent ad = new Adherent(nom, prenom, adresse, telephone, mail, password);
+            Adherent ad = new Adherent(nom, prenom, adresse, telephone, mail, password, 1);
             if(insertAdherent(ad) == 0)
                 System.out.println("Error while inserting");
         }
@@ -57,12 +62,12 @@ public class FillUpTables {
              PreparedStatement pstmt = conn.prepareStatement(SQL,
                      Statement.RETURN_GENERATED_KEYS)) {
 
-            pstmt.setString(1, adherent.get_nom());
-            pstmt.setString(2, adherent.get_prenom());
-            pstmt.setString(3, adherent.get_adresse());
-            pstmt.setString(4, adherent.get_telephone());
-            pstmt.setString(5, adherent.get_email());
-            pstmt.setString(6, adherent.get_password());
+            pstmt.setString(1, adherent.getNom());
+            pstmt.setString(2, adherent.getPrenom());
+            pstmt.setString(3, adherent.getAdresse());
+            pstmt.setString(4, adherent.getTelephone());
+            pstmt.setString(5, adherent.getEmail());
+            pstmt.setString(6, adherent.getPassword());
 
             int affectedRows = pstmt.executeUpdate();
             // check the affected rows

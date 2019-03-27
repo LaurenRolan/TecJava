@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="NewPersistenceUnit"/>
+    <persistence-unit name="NewPersistenceUnit">
+        <class>beanEntity.TournoiEntity</class>
+        <class>beanEntity.AdherentEntity</class>
+        <class>beanEntity.InscriptionEntity</class>
+        <properties>
+            <property name="hibernate.connection.username" value="lrolan"></property>
+            <property name="hibernate.connection.password" value="l4ur3n"></property>
+        </properties>
+    </persistence-unit>
 </persistence>

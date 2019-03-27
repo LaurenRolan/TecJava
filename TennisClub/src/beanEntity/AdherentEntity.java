@@ -1,23 +1,17 @@
-package bean;
+package beanEntity;
 
-public class Adherent {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class AdherentEntity {
+    private int numeroAdherent;
     private String nom;
     private String prenom;
     private String adresse;
     private String telephone;
     private String email;
     private String password;
-    private int numeroAdherent;
-
-    public Adherent(String nom, String prenom, String adresse, String telephone, String email, String password, int numeroAdherent) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
-        this.telephone = telephone;
-        this.email = email;
-        this.password = password;
-        this.numeroAdherent = numeroAdherent;
-    }
 
     public String getNom() {
         return nom;
@@ -67,6 +61,7 @@ public class Adherent {
         this.password = password;
     }
 
+    @Id
     public int getNumeroAdherent() {
         return numeroAdherent;
     }
