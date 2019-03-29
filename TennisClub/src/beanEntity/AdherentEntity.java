@@ -1,24 +1,36 @@
 package beanEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="adherent", schema="lrolan")
 public class AdherentEntity {
-    private int numeroAdherent;
-    private String nom;
-    private String prenom;
-    private String adresse;
-    private String telephone;
-    private String email;
-    private String password;
 
-    public String getNom() {
-        return nom;
-    }
+    @Id
+    @Column(name = "numeroadherent")
+    private int numeroAdherent;
+    @Column(name = "nom")
+    private String nom;
+    @Column(name = "prenom")
+    private String prenom;
+    @Column(name = "adresse")
+    private String adresse;
+    @Column(name = "telephone")
+    private String telephone;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "password")
+    private String password;
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getNom() {
+        return nom;
     }
 
     public String getPrenom() {
@@ -28,6 +40,7 @@ public class AdherentEntity {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
 
     public String getAdresse() {
         return adresse;
@@ -53,6 +66,7 @@ public class AdherentEntity {
         this.email = email;
     }
 
+
     public String getPassword() {
         return password;
     }
@@ -61,7 +75,6 @@ public class AdherentEntity {
         this.password = password;
     }
 
-    @Id
     public int getNumeroAdherent() {
         return numeroAdherent;
     }

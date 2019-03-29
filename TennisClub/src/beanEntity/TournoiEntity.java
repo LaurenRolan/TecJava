@@ -2,9 +2,11 @@ package beanEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
+@Table(name="tournoi", schema="lrolan")
 public class TournoiEntity {
 
     private int codeTournoi;
