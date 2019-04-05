@@ -1,19 +1,20 @@
 package beanEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
-@Table(name="tournoi", schema="lrolan")
+@Table(name= "tournoi", schema= "lrolan", catalog = "livres")
 public class TournoiEntity {
 
-    private int codeTournoi;
     private String nom;
     private Date date;
     private String lieu;
+    private int codetournoi;
 
+    @Basic
+    @Column(name = "nom")
     public String getNom() {
         return nom;
     }
@@ -22,6 +23,8 @@ public class TournoiEntity {
         this.nom = nom;
     }
 
+    @Basic
+    @Column(name = "date")
     public Date getDate() {
         return date;
     }
@@ -30,6 +33,8 @@ public class TournoiEntity {
         this.date = date;
     }
 
+    @Basic
+    @Column(name = "lieu")
     public String getLieu() {
         return lieu;
     }
@@ -39,11 +44,28 @@ public class TournoiEntity {
     }
 
     @Id
-    public int getCodeTournoi() {
-        return codeTournoi;
+    @Column(name = "codetournoi")
+    public int getCodetournoi() {
+        return codetournoi;
     }
 
-    public void setCodeTournoi(int tournoi) {
-        this.codeTournoi = tournoi;
+    public void setCodetournoi(int codetournoi) {
+        this.codetournoi = codetournoi;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TournoiEntity that = (TournoiEntity) o;
+        return codetournoi == that.codetournoi &&
+                Objects.equals(nom, that.nom) &&
+                Objects.equals(date, that.date) &&
+                Objects.equals(lieu, that.lieu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codetournoi, nom, date, lieu);
     }
 }

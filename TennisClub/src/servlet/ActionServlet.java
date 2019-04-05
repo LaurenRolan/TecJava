@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "actionServlet", urlPatterns = {"/action"})
 public class ActionServlet extends HttpServlet {
@@ -44,16 +45,20 @@ public class ActionServlet extends HttpServlet {
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("TennisUnit");
                 EntityManager em = emf.createEntityManager();
                 System.out.println("Created em");
+
                 Query query = em.createQuery("from AdherentEntity adherent where adherent.email= :email");
                 query.setParameter("email", email);
                 System.out.println(query.toString());
-                AdherentEntity adherentEntity = (AdherentEntity) query.getSingleResult();
+                List results = query.getResultList();
+                AdherentEntity adherentEntity = null;
+                if (!results.isEmpty())
+                    adherentEntity = (AdherentEntity) results.get(0);
 
                 System.out.println(adherentEntity.getNom() + " " + adherentEntity.getPrenom());
 
             } catch (Exception e) {
                 System.out.println("Didn't work");
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
         out.write("</div></body></html>");
