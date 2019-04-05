@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div id="nomUtilisateur"></div>
+    <div id="nomUtilisateur"> <% session.getAttribute("nom"); %> </div>
     <div>
         <a href="${pageContext.request.contextPath}/action?code=A">
             Consultation de votre dossier adhérent
