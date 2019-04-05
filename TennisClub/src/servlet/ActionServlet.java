@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,32 +17,52 @@ public class ActionServlet extends HttpServlet {
     }
 
     public void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
-
         String email = req.getParameter("email"),
                 pass = req.getParameter("password"),
                 action = req.getParameter("code");
 
-        out.write("<html><body><div id='info' style='text-align: center;'>");
-
-        out.write("<p> Bonjour, " + email + " </p>");
-
         RequestDispatcher rdObj;
 
         if("".equals(email) || "".equals(pass)) {
-            out.write("<p id='errMsg' style='color: red; font-size: larger;'>Please Enter Both Username & Password... !</p>");
             rdObj = req.getRequestDispatcher("/index.jsp");
             rdObj.include(req, resp);
         } else {
-            if(action.equals("L")) {
-                RequestDispatcher dispatcher = getServletContext()
-                        .getRequestDispatcher("/login");
-                dispatcher.forward(req, resp);
+            HttpSession session = req.getSession(false);
+
+            if(session == null) { //Session n'existe pas
+                if(action.equals("L")) {
+                    System.out.println("Login");
+                    rdObj = getServletContext()
+                            .getRequestDispatcher("/login");
+                    rdObj.forward(req, resp);
+                }
+                else {
+                    rdObj = getServletContext()
+                            .getRequestDispatcher("/login.html");
+                    rdObj.forward(req, resp);
+                }
             }
-            System.out.println(action);
+            else { //session existe
+                System.out.println("Session existe");
+                if(action.equals("A")) {
+                    System.out.println("Adherent");
+                    rdObj = getServletContext()
+                            .getRequestDispatcher("/adherent");
+                    rdObj.forward(req, resp);
+                }
+                else if (action.equals("I")) {
+                    System.out.println("Inscription");
+                    rdObj = getServletContext()
+                            .getRequestDispatcher("/inscription");
+                    rdObj.forward(req, resp);
+                }
+                else {
+                    System.out.println("Menu");
+                    rdObj = getServletContext()
+                            .getRequestDispatcher("/Menu.jsp");
+                    rdObj.forward(req, resp);
+                }
+            }
         }
-        out.write("</div></body></html>");
-        out.close();
     }
 }

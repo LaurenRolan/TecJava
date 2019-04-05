@@ -13,12 +13,12 @@
 <body>
     <div id="nomUtilisateur"></div>
     <div>
-        <a href="http://localhost:8080/tennis/action?code=A">
+        <a href="${pageContext.request.contextPath}/action?code=A">
             Consultation de votre dossier adhérent
         </a>
     </div>
     <div>
-        <a href="http://localhost:8080/tennis/action?code=I">
+        <a href="${pageContext.request.contextPath}/action?code=I">
             Inscription à un tournoi
         </a>
     </div>

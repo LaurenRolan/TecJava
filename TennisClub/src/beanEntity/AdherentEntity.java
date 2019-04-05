@@ -7,9 +7,6 @@ import java.util.Objects;
 @Table(name= "adherent", schema= "lrolan", catalog = "livres")
 public class AdherentEntity {
 
-    @Id
-    @Column(name = "numeroadherent")
-    private int numeroAdherent;
     @Column(name = "nom")
     private String nom;
     @Column(name = "prenom")
@@ -22,6 +19,8 @@ public class AdherentEntity {
     private String email;
     @Column(name = "password")
     private String password;
+    @Id
+    @Column(name = "numeroadherent")
     private int numeroadherent;
 
     @Basic
@@ -82,14 +81,6 @@ public class AdherentEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getNumeroAdherent() {
-        return numeroAdherent;
-    }
-
-    public void setNumeroAdherent(int numeroAdherent) {
-        this.numeroAdherent = numeroAdherent;
     }
 
     @Id
