@@ -16,12 +16,18 @@ public class ActionServlet extends HttpServlet {
         handleRequest(request, response);
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        handleRequest(request, response);
+    }
+
     public void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String email = req.getParameter("email"),
                 pass = req.getParameter("password"),
                 action = req.getParameter("code");
 
         RequestDispatcher rdObj;
+
+        System.out.println("In handle request");
 
         if("".equals(email) || "".equals(pass)) {
             rdObj = req.getRequestDispatcher("/index.jsp");
@@ -30,6 +36,7 @@ public class ActionServlet extends HttpServlet {
             HttpSession session = req.getSession(false);
 
             if(session == null) { //Session n'existe pas
+                System.out.println("Session does not exist");
                 if(action.equals("L")) {
                     System.out.println("Login");
                     rdObj = getServletContext()

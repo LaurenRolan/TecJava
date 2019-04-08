@@ -8,17 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Tennis Club -- Menu</title>
 </head>
 <body>
     <div id="nomUtilisateur"> <% session.getAttribute("nom"); %> </div>
     <div>
-        <a href="${pageContext.request.contextPath}/action?code=A">
+        <a href="/action?code=A">
             Consultation de votre dossier adhérent
         </a>
     </div>
     <div>
-        <a href="${pageContext.request.contextPath}/action?code=I">
+        <a href="/action?code=I">
             Inscription à un tournoi
         </a>
     </div>
