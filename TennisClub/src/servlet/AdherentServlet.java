@@ -10,7 +10,14 @@ import java.io.IOException;
 @WebServlet(name = "AdherentServlet", urlPatterns = {"/adherent"})
 public class AdherentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        handleRequest(request, response);
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        handleRequest(request, response);
+    }
+
+    private void handleRequest(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+    }
 }

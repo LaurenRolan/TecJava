@@ -11,14 +11,14 @@
     <title>Tennis Club -- Menu</title>
 </head>
 <body>
-    <div id="nomUtilisateur"> <% session.getAttribute("nom"); %> </div>
+    <div id="nomUtilisateur"> <%= session.getAttribute("nom") %> </div>
     <div>
-        <a href="/action?code=A" method="post">
+        <a href="/action?code=A">
             Consultation de votre dossier adhérent
         </a>
     </div>
     <div>
-        <a href="/action?code=I" method="post">
+        <a href="/action?code=I">
             Inscription à un tournoi
         </a>
     </div>

@@ -3,6 +3,8 @@ import bean.Adherent;
 import java.sql.*;
 import java.util.Scanner;
 
+import static servlet.CryptoFunction.encryptThisString;
+
 // https://www.jetbrains.com/help/idea/working-with-the-hibernate-console.html
 // https://www.geeksforgeeks.org/sha-224-hash-in-java/
 // http://www.postgresqltutorial.com/postgresql-jdbc/insert/
@@ -14,12 +16,18 @@ import java.util.Scanner;
 
 
 public class FillUpTables {
-    private final String url = "jdbc:postgresql://postgres.ecole.ensicaen.fr/livres";
+    private final String url = "jdbc:postgresql://localhost:5432/tennis";
     private final String user = "lrolan";
     private final String password = "l4ur3n";
 
     public Connection connect() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+        try {
+            Class.forName("org.postgresql.Driver");
+            return DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public FillUpTables() {}
@@ -31,14 +39,15 @@ public class FillUpTables {
 
     public void insertInTable() {
         Scanner input = new Scanner(System.in);
-
-        for(int i=0; i < 5; i++) {
+        String anotherTurn = "o";
+        while(anotherTurn.equals("o")) {
             System.out.println("Tapez le nom : ");
             String nom = input.next();
             System.out.println("Tapez le prenom : ");
             String prenom = input.next();
             System.out.println("Tapez le adresse : ");
-            String adresse = input.next();
+            String adresse = input.nextLine();
+            adresse = input.nextLine();
             System.out.println("Tapez le telephone : ");
             String telephone = input.next();
             System.out.println("Tapez le mail : ");
@@ -49,6 +58,10 @@ public class FillUpTables {
             Adherent ad = new Adherent(nom, prenom, adresse, telephone, mail, password, 1);
             if(insertAdherent(ad) == 0)
                 System.out.println("Error while inserting");
+
+            System.out.println("Continuer? o : n     ");
+            anotherTurn = input.next();
+
         }
     }
 
@@ -67,7 +80,7 @@ public class FillUpTables {
             pstmt.setString(3, adherent.getAdresse());
             pstmt.setString(4, adherent.getTelephone());
             pstmt.setString(5, adherent.getEmail());
-            pstmt.setString(6, adherent.getPassword());
+            pstmt.setString(6, encryptThisString(adherent.getPassword()));
 
             int affectedRows = pstmt.executeUpdate();
             // check the affected rows

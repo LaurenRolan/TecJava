@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div id="nomAdherent"> <% request.getParameter("numeroAdherent"); %> </div>
+    <div id="nomAdherent"> <%= request.getParameter("numeroAdherent") %> </div>
     <div id="infosPersonnelles"> </div>
     <div id="infosTournois"></div>
 </body>

@@ -11,7 +11,7 @@
     <title>Tennis Club -- Menu</title>
 </head>
 <body>
-    <div id="nomUtilisateur"> <% session.getAttribute("nom"); %> </div>
+    <div id="nomUtilisateur"> Bienvenue <%= session.getAttribute("nom") %> <%= session.getAttribute("prenom") %> </div>
     <div>
         <a href="/action?code=A">
             Consultation de votre dossier adhérent

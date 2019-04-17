@@ -14,11 +14,11 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="17537d0e-625d-4c9d-97b3-87dc167d2097" />
           <factory-entry name="TennisUnit" value="17537d0e-625d-4c9d-97b3-87dc167d2097" />
         </datasource-mapping>
+        <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
     </facet>
@@ -39,6 +39,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.39" level="application_server_libraries" />
     <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
     <orderEntry type="library" name="Hibernate 5.4.1-5.4.1" level="project" />
-    <orderEntry type="library" name="postgresql" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.5" level="project" />
   </component>
 </module>
