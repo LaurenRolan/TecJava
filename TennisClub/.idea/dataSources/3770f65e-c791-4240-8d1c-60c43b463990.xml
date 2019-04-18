@@ -14,7 +14,7 @@
       <ObjectId>16384</ObjectId>
       <StateNumber>563</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>617</IntrospectionStateNumber>
+      <IntrospectionStateNumber>630</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|16422|16397|1
@@ -71,7 +71,7 @@
       <ObjectId>16396</ObjectId>
       <StateNumber>564</StateNumber>
       <Owner>lrolan</Owner>
-      <IntrospectionStateNumber>618</IntrospectionStateNumber>
+      <IntrospectionStateNumber>631</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -259,7 +259,21 @@
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
       <TypeId>1082</TypeId>
     </column>
-    <foreign-key id="41" parent="27" name="inscription_numeroadherent_fkey">
+    <index id="41" parent="27" name="inscription_pk">
+      <ObjectId>16425</ObjectId>
+      <StateNumber>619</StateNumber>
+      <ColNames>numeroadherent
+codetournoi</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="27" name="inscription_pk">
+      <ObjectId>16426</ObjectId>
+      <StateNumber>619</StateNumber>
+      <ColNames>numeroadherent
+codetournoi</ColNames>
+      <UnderlyingIndexName>inscription_pk</UnderlyingIndexName>
+    </key>
+    <foreign-key id="43" parent="27" name="inscription_numeroadherent_fkey">
       <ObjectId>16412</ObjectId>
       <StateNumber>567</StateNumber>
       <ColNames>numeroadherent</ColNames>
@@ -269,7 +283,7 @@
       <RefKeyName>adherent_pkey</RefKeyName>
       <RefColNames>numeroadherent</RefColNames>
     </foreign-key>
-    <foreign-key id="42" parent="27" name="inscription_codetournoi_fkey">
+    <foreign-key id="44" parent="27" name="inscription_codetournoi_fkey">
       <ObjectId>16417</ObjectId>
       <StateNumber>567</StateNumber>
       <ColNames>codetournoi</ColNames>
@@ -279,40 +293,40 @@
       <RefKeyName>tournoi_pkey</RefKeyName>
       <RefColNames>codetournoi</RefColNames>
     </foreign-key>
-    <column id="43" parent="28" name="codetournoi">
+    <column id="45" parent="28" name="codetournoi">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>566</StateNumber>
+      <StateNumber>628</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="44" parent="28" name="nom">
+    <column id="46" parent="28" name="nom">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <StateNumber>566</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="45" parent="28" name="lieu">
+    <column id="47" parent="28" name="lieu">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <StateNumber>566</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="46" parent="28" name="date">
+    <column id="48" parent="28" name="date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <StateNumber>566</StateNumber>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
       <TypeId>1082</TypeId>
     </column>
-    <index id="47" parent="28" name="tournoi_pkey">
+    <index id="49" parent="28" name="tournoi_pkey">
       <ObjectId>16406</ObjectId>
       <StateNumber>566</StateNumber>
       <ColNames>codetournoi</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="48" parent="28" name="tournoi_pkey">
+    <key id="50" parent="28" name="tournoi_pkey">
       <ObjectId>16407</ObjectId>
       <StateNumber>566</StateNumber>
       <ColNames>codetournoi</ColNames>

@@ -3,3 +3,15 @@
     margin: 0 auto;
     text-align: center;
 }
+
+#infosPersonnelles {
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.inline-div {
+    display: inline;
+
+}

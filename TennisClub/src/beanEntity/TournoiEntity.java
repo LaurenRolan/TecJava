@@ -5,13 +5,22 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name= "tournoi", schema= "lrolan", catalog = "tennis")
+@Table(name = "tournoi", schema = "lrolan", catalog = "tennis")
 public class TournoiEntity {
-
-    private String nom;
-    private Date date;
-    private String lieu;
     private int codetournoi;
+    private String nom;
+    private String lieu;
+    private Date date;
+
+    @Id
+    @Column(name = "codetournoi")
+    public int getCodetournoi() {
+        return codetournoi;
+    }
+
+    public void setCodetournoi(int codetournoi) {
+        this.codetournoi = codetournoi;
+    }
 
     @Basic
     @Column(name = "nom")
@@ -24,16 +33,6 @@ public class TournoiEntity {
     }
 
     @Basic
-    @Column(name = "date")
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    @Basic
     @Column(name = "lieu")
     public String getLieu() {
         return lieu;
@@ -43,14 +42,14 @@ public class TournoiEntity {
         this.lieu = lieu;
     }
 
-    @Id
-    @Column(name = "codetournoi")
-    public int getCodetournoi() {
-        return codetournoi;
+    @Basic
+    @Column(name = "date")
+    public Date getDate() {
+        return date;
     }
 
-    public void setCodetournoi(int codetournoi) {
-        this.codetournoi = codetournoi;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
@@ -60,12 +59,12 @@ public class TournoiEntity {
         TournoiEntity that = (TournoiEntity) o;
         return codetournoi == that.codetournoi &&
                 Objects.equals(nom, that.nom) &&
-                Objects.equals(date, that.date) &&
-                Objects.equals(lieu, that.lieu);
+                Objects.equals(lieu, that.lieu) &&
+                Objects.equals(date, that.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codetournoi, nom, date, lieu);
+        return Objects.hash(codetournoi, nom, lieu, date);
     }
 }

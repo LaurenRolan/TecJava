@@ -20,7 +20,7 @@ public class ActionServlet extends HttpServlet {
         handleRequest(request, response);
     }
 
-    public void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    private void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String email = req.getParameter("email"),
                 pass = req.getParameter("password"),
                 action = req.getParameter("code");

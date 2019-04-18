@@ -1,6 +1,9 @@
 import bean.Adherent;
+import bean.Tournoi;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 // https://www.jetbrains.com/help/idea/working-with-the-hibernate-console.html
@@ -14,31 +17,66 @@ import java.util.Scanner;
 
 
 public class FillUpTables {
-    private final String url = "jdbc:postgresql://postgres.ecole.ensicaen.fr/livres";
+    private final String url = "jdbc:postgresql://localhost/tennis";
     private final String user = "lrolan";
     private final String password = "l4ur3n";
 
-    public Connection connect() throws SQLException {
+    private Connection connect() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
 
-    public FillUpTables() {}
+    private FillUpTables() {}
 
     public static void main(String [] args) {
         FillUpTables fillUpTables = new FillUpTables();
-        fillUpTables.insertInTable();
+        fillUpTables.addAdherents();
+        fillUpTables.addTournois();
     }
 
-    public void insertInTable() {
+    private void addTournois() {
         Scanner input = new Scanner(System.in);
+        String continuer = "o";
+        while(continuer.equals("o")) {
+            System.out.println("Tapez le nom : ");
+            input.nextLine();
+            String nom = input.nextLine();;
+            System.out.println("Tapez le lieu : ");
+            input.nextLine();
+            String lieu = input.nextLine();
+            System.out.println("Tapez la date (JJ-MM-AAAA) : ");
+            String date = input.next();
+            System.out.println("Tapez le code : ");
+            int code = input.nextInt();
 
-        for(int i=0; i < 5; i++) {
+
+            try {
+                SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                java.util.Date dateUtil;
+                dateUtil = sdf1.parse(date);
+                java.sql.Date sqlDate = new java.sql.Date(dateUtil.getTime());
+                Tournoi tournoi = new Tournoi(nom, lieu, sqlDate, code);
+                if(insertTournoi(tournoi) == 0)
+                    System.out.println("Error while inserting");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("Continuer? o:n ");
+            continuer = input.next();
+        }
+    }
+
+    private void addAdherents() {
+        Scanner input = new Scanner(System.in);
+        String continuer = "o";
+        while(continuer.equals("o")) {
             System.out.println("Tapez le nom : ");
             String nom = input.next();
             System.out.println("Tapez le prenom : ");
             String prenom = input.next();
             System.out.println("Tapez le adresse : ");
-            String adresse = input.next();
+            input.nextLine();
+            String adresse = input.nextLine();
             System.out.println("Tapez le telephone : ");
             String telephone = input.next();
             System.out.println("Tapez le mail : ");
@@ -49,10 +87,46 @@ public class FillUpTables {
             Adherent ad = new Adherent(nom, prenom, adresse, telephone, mail, password, 1);
             if(insertAdherent(ad) == 0)
                 System.out.println("Error while inserting");
+
+            System.out.println("Continuer? o:n ");
+            continuer = input.next();
         }
     }
 
-    public long insertAdherent(Adherent adherent) {
+    private long insertTournoi(Tournoi tournoi) {
+        String SQL = "INSERT INTO tournoi(nom, lieu, date, codetournoi) "
+                + "VALUES(?,?,?, ?)";
+
+        long id = 0;
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(SQL,
+                     Statement.RETURN_GENERATED_KEYS)) {
+
+            pstmt.setString(1, tournoi.getNom());
+            pstmt.setString(2, tournoi.getLieu());
+            pstmt.setDate(3, tournoi.getDate());
+            pstmt.setInt(4, tournoi.getCodeTournoi());
+
+            int affectedRows = pstmt.executeUpdate();
+            // check the affected rows
+            if (affectedRows > 0) {
+                // get the ID back
+                try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        id = rs.getLong(1);
+                    }
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return id;
+    }
+
+    private long insertAdherent(Adherent adherent) {
         String SQL = "INSERT INTO adherent(nom,prenom, adresse, telephone, email, password) "
                 + "VALUES(?,?,?,?,?,?)";
 

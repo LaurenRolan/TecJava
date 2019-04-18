@@ -5,40 +5,14 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name= "inscription",schema= "lrolan", catalog = "tennis")
+@Table(name = "inscription", schema = "lrolan", catalog = "tennis")
 public class InscriptionEntity {
-    private int codeTournoi;
-    private int numeroAdherent;
-    private Date dateInscrition;
     private Integer numeroadherent;
+    private Integer codetournoi;
     private Date dateinscription;
 
-    public int getNumeroAdherent() {
-        return numeroAdherent;
-    }
-
-    public void setNumeroAdherent(int numeroAdherent) {
-        this.numeroAdherent = numeroAdherent;
-    }
-
-    public Date getDateInscrition() {
-        return dateInscrition;
-    }
-
-    public void setDateInscrition(Date dateInscrition) {
-        this.dateInscrition = dateInscrition;
-    }
-
-    @Id
-    public int getCodeTournoi() {
-        return codeTournoi;
-    }
-
-    public void setCodeTournoi(int codeTournoi) {
-        this.codeTournoi = codeTournoi;
-    }
-
     @Basic
+    @Id
     @Column(name = "numeroadherent")
     public Integer getNumeroadherent() {
         return numeroadherent;
@@ -46,6 +20,16 @@ public class InscriptionEntity {
 
     public void setNumeroadherent(Integer numeroadherent) {
         this.numeroadherent = numeroadherent;
+    }
+
+    @Basic
+    @Column(name = "codetournoi")
+    public Integer getCodetournoi() {
+        return codetournoi;
+    }
+
+    public void setCodetournoi(Integer codetournoi) {
+        this.codetournoi = codetournoi;
     }
 
     @Basic
@@ -64,11 +48,12 @@ public class InscriptionEntity {
         if (o == null || getClass() != o.getClass()) return false;
         InscriptionEntity that = (InscriptionEntity) o;
         return Objects.equals(numeroadherent, that.numeroadherent) &&
+                Objects.equals(codetournoi, that.codetournoi) &&
                 Objects.equals(dateinscription, that.dateinscription);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numeroadherent, dateinscription);
+        return Objects.hash(numeroadherent, codetournoi, dateinscription);
     }
 }
