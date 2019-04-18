@@ -1,4 +1,6 @@
-<%@ page import="bean.Adherent" %><%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="bean.Adherent" %>
+<%--
   Created by IntelliJ IDEA.
   User: lrolan
   Date: 27/03/19
@@ -34,6 +36,7 @@
     </div>
     <div id="infosTournois">
         <table>
+            <jsp:useBean id="tournoiList" scope="request" type="java.util.List"/>
             <c:forEach var="element" items="${tournoiList}">
                 <tr>
                     <td>${element.getTournoi().getNom()}</td>
