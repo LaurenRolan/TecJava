@@ -9,18 +9,34 @@
 <html>
 <head>
     <title>Tennis Club -- Menu</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="nomUtilisateur"> <% session.getAttribute("nom"); %> </div>
-    <div>
-        <a href="/action?code=A">
-            Consultation de votre dossier adhérent
-        </a>
-    </div>
-    <div>
-        <a href="/action?code=I">
-            Inscription à un tournoi
-        </a>
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <h1 class="navbar-text"> Tennis Club </h1>
+        <h4 class="nav-text"> Adresse : </h4>
+        <p class="nav-text"> Bienvenue <%= session.getAttribute("nom") %>
+                        <%= session.getAttribute("prenom") %>
+        </p>
+    </nav>
+    <div id="center">
+        <div>
+            <a href="/action?code=A">
+                Consultation de votre dossier adhérent
+            </a>
+        </div>
+        <div>
+            <a href="/action?code=I">
+                Inscription à un tournoi
+            </a>
+        </div>
     </div>
 </body>
 </html>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="livres@postgres.ecole.ensicaen.fr" uuid="17537d0e-625d-4c9d-97b3-87dc167d2097">
-      <database-info product="PostgreSQL" version="9.4.15" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" family="POSTGRES" exact-version="9.4.15">
+    <data-source name="tennis@localhost" uuid="3770f65e-c791-4240-8d1c-60c43b463990">
+      <database-info product="PostgreSQL" version="10.7 (Ubuntu 10.7-0ubuntu0.18.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="10.7" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>lrolan</user-name>
-      <introspection-schemas>@:@</introspection-schemas>
+      <introspection-schemas>tennis:lrolan</introspection-schemas>
     </data-source>
   </component>
 </project>

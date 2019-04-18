@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name= "tournoi", schema= "lrolan", catalog = "livres")
+@Table(name= "tournoi", schema= "lrolan", catalog = "tennis")
 public class TournoiEntity {
 
     private String nom;
