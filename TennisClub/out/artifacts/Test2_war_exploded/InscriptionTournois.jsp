@@ -42,7 +42,8 @@
                         <td>${tournoi.getNom()}</td>
                         <td>${tournoi.getDate()}</td>
                         <td>${tournoi.getLieu()}</td>
-                        <td><a href="/inscription?tournoi="${tournoi.getCodeTournoi()}>Inscription</a></td>
+                        <td><a href="/inscription?tournoi=${tournoi.getCodeTournoi()}">
+                            Inscription</a></td>
                     </tr>
                 </c:forEach>
             </tr>

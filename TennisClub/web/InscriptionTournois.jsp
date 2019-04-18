@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <title>Tennis Club - Inscription</title>
+    <title>Tennis Club -- Inscription</title>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
@@ -42,7 +42,8 @@
                         <td>${tournoi.getNom()}</td>
                         <td>${tournoi.getDate()}</td>
                         <td>${tournoi.getLieu()}</td>
-                        <td><a href="/inscription?tournoi="${tournoi.getCodeTournoi()}>Inscription</a></td>
+                        <td><a href="/inscription?tournoi=${tournoi.getCodeTournoi()}">
+                            Inscription</a></td>
                     </tr>
                 </c:forEach>
             </tr>

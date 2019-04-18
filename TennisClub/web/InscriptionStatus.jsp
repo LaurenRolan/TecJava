@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Tennis Club -- Inscription</title>
 </head>
 <body>
-    <div> Inscription enregistrée pour le tournoi + <div id="nom"></div>
+    <div> Inscription enregistrée pour le tournoi <%=%>
         du <div id="date"></div> à <div id="lieu"></div>.
     </div>
 </body>
