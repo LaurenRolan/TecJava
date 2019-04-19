@@ -47,9 +47,9 @@ public class InscriptionServlet extends HttpServlet {
             int codeTournoi = Integer.parseInt(tournoi);
 
             if(inscription(req, res, codeTournoi) == 0) { //Error
-                req.setAttribute("Sucess", false);
+                req.setAttribute("Success", false);
             } else {
-                req.setAttribute("Sucess", true);
+                req.setAttribute("Success", true);
             }
 
             rdObj = getServletContext()
@@ -73,9 +73,22 @@ public class InscriptionServlet extends HttpServlet {
             em.getTransaction().begin();
             em.persist(inscriptionEntity);
             em.getTransaction().commit();
-            em.close();
+
+            Query infoQuery = em.createQuery("from TournoiEntity tournoi where tournoi.codetournoi=:code");
+            infoQuery.setParameter("code", code);
+
+            List results = infoQuery.getResultList();
+            if(!results.isEmpty()) {
+                TournoiEntity tournoiEntity = (TournoiEntity) results.get(0);
+                req.setAttribute("tournoi", new Tournoi(tournoiEntity.getNom(), tournoiEntity.getLieu(),
+                        tournoiEntity.getDate(), tournoiEntity.getCodetournoi()));
+            } else {
+                System.out.println("No tournois");
+                return 0;
+            }
             return 1;
         }catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }

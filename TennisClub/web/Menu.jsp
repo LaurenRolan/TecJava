@@ -20,8 +20,8 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-        <h1 class="navbar-text"> Tennis Club </h1>
-        <h4 class="nav-text"> Adresse : </h4>
+        <h1 class="navbar-text text-white"> <a href="/Menu.jsp" class="text-white"> Tennis Club  </a> </h1>
+        <h4 class="nav-text"> Caen </h4>
         <p class="nav-text"> Bienvenue <%= session.getAttribute("nom") %>
                         <%= session.getAttribute("prenom") %>
         </p>

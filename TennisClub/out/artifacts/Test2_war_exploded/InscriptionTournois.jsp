@@ -17,12 +17,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <title>Tennis Club - Inscription</title>
+    <title>Tennis Club -- Inscription</title>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-        <h1 class="navbar-text"> Tennis Club </h1>
-        <h4 class="nav-text"> Adresse : </h4>
+        <h1 class="navbar-text text-white"> <a href="/Menu.jsp" class="text-white"> Tennis Club  </a> </h1>
+        <h4 class="nav-text"> Caen </h4>
         <p class="nav-text"> Bienvenue <%= session.getAttribute("nom") %>
             <%= session.getAttribute("prenom") %>
         </p>
@@ -35,6 +35,7 @@
                 <th scope="col">Date</th>
                 <th scope="col">Lieu</th>
                 <th scope="col"></th>
+            </tr>
                 <jsp:useBean id="tournoiList" scope="request" type="java.util.List"/>
                 <c:forEach var="tournoi" items="${tournoiList}">
                     <tr>
@@ -45,8 +46,7 @@
                         <td><a href="/inscription?tournoi=${tournoi.getCodeTournoi()}">
                             Inscription</a></td>
                     </tr>
-                </c:forEach>
-            </tr>
+        </c:forEach>
         </table>
     </div>
 </body>

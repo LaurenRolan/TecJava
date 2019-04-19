@@ -54,7 +54,7 @@ public class AdherentServlet extends HttpServlet {
         inscriptionQuery.setParameter("numero", numeroAdherent);
         List results = inscriptionQuery.getResultList();
 
-        InscriptionEntity inscriptionEntity = null;
+        InscriptionEntity inscriptionEntity;
         List<Inscription> inscriptions = new ArrayList<>();
 
         if (!results.isEmpty()) { //There are inscriptions
@@ -65,7 +65,7 @@ public class AdherentServlet extends HttpServlet {
 
                 Query query2 = em.createQuery("from TournoiEntity tournoi where tournoi.codetournoi= :code");
                 query2.setParameter("code", inscriptionEntity.getCodetournoi());
-                List results2 = inscriptionQuery.getResultList();
+                List results2 = query2.getResultList();
 
                 if (!results2.isEmpty()) { //The tounoi exists
                     TournoiEntity tournoiEntity = (TournoiEntity) results2.get(0);

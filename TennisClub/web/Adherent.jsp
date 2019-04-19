@@ -22,30 +22,39 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-        <h1 class="navbar-text"> Tennis Club </h1>
-        <h4 class="nav-text"> Adresse : </h4>
+        <h1 class="navbar-text text-white"> <a href="/Menu.jsp" class="text-white"> Tennis Club  </a></h1>
+        <h4 class="nav-text"> Caen </h4>
         <p class="nav-text"> Bienvenue <%= session.getAttribute("nom") %>
             <%= session.getAttribute("prenom") %>
         </p>
     </nav>
-    <div id="infosPersonnelles" class="jumbotron bg-primary">
-        <%= ((Adherent) request.getAttribute("info")).getNom() %>  <%= ((Adherent) request.getAttribute("info")).getPrenom() %> <br>
-        <%= ((Adherent) request.getAttribute("info")).getAdresse() %><br>
-        <%= ((Adherent) request.getAttribute("info")).getTelephone() %> <br>
-        <%= ((Adherent) request.getAttribute("info")).getEmail() %>
-    </div>
-    <div id="infosTournois">
-        <table>
-            <jsp:useBean id="tournoiList" scope="request" type="java.util.List"/>
-            <c:forEach var="element" items="${tournoiList}">
+    <div class="row">
+    <div class="container">
+        <div id="infosPersonnelles" class="jumbotron bg-primary col-md-6.">
+            <%= ((Adherent) request.getAttribute("info")).getNom() %>  <%= ((Adherent) request.getAttribute("info")).getPrenom() %> <br>
+            <%= ((Adherent) request.getAttribute("info")).getAdresse() %><br>
+            <%= ((Adherent) request.getAttribute("info")).getTelephone() %> <br>
+            <%= ((Adherent) request.getAttribute("info")).getEmail() %>
+        </div>
+        <div id="infosTournois" class="jumbotron bg-primary col-md-6">
+            <table class="table">
                 <tr>
-                    <td>${element.getTournoi().getNom()}</td>
-                    <td>${element.getTournoi().getDate()}</td>
-                    <td>${element.getTournoi().getLieu()}</td>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Lieu</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <jsp:useBean id="tournoiList" scope="request" type="java.util.List"/>
+                <c:forEach var="element" items="${tournoiList}">
+                    <tr>
+                        <td scope="row">${element.getTournoi().getNom()}</td>
+                        <td>${element.getTournoi().getDate()}</td>
+                        <td>${element.getTournoi().getLieu()}</td>
+                    </tr>
+                </c:forEach>
+            </table>
 
+        </div>
+    </div>
     </div>
 </body>
 </html>
