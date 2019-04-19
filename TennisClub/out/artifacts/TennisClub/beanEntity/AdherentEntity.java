@@ -4,24 +4,25 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name= "adherent", schema= "lrolan", catalog = "tennis")
+@Table(name = "adherent", schema = "lrolan", catalog = "tennis")
 public class AdherentEntity {
-
-    @Column(name = "nom")
+    private int numeroadherent;
     private String nom;
-    @Column(name = "prenom")
     private String prenom;
-    @Column(name = "adresse")
     private String adresse;
-    @Column(name = "telephone")
     private String telephone;
-    @Column(name = "email")
     private String email;
-    @Column(name = "password")
     private String password;
+
     @Id
     @Column(name = "numeroadherent")
-    private int numeroadherent;
+    public int getNumeroadherent() {
+        return numeroadherent;
+    }
+
+    public void setNumeroadherent(int numeroadherent) {
+        this.numeroadherent = numeroadherent;
+    }
 
     @Basic
     @Column(name = "nom")
@@ -81,16 +82,6 @@ public class AdherentEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Id
-    @Column(name = "numeroadherent")
-    public int getNumeroadherent() {
-        return numeroadherent;
-    }
-
-    public void setNumeroadherent(int numeroadherent) {
-        this.numeroadherent = numeroadherent;
     }
 
     @Override
